@@ -35,7 +35,7 @@ struct _BMP
 
 
 /* Holds the last error code */
-static BMP_STATUS BMP_LAST_ERROR_CODE = 0;
+static BMP_STATUS BMP_LAST_ERROR_CODE = BMP_OK;
 
 
 /* Error description strings */
@@ -100,7 +100,7 @@ BMP* BMP_Create( UINT width, UINT height, USHORT depth )
 
 
 	/* Allocate the bitmap data structure */
-	bmp = calloc( 1, sizeof( BMP ) );
+	bmp =(BMP*)calloc( 1, sizeof( BMP ) );
 	if ( bmp == NULL )
 	{
 		BMP_LAST_ERROR_CODE = BMP_OUT_OF_MEMORY;
@@ -212,7 +212,7 @@ BMP* BMP_ReadFile( const char* filename )
 
 
 	/* Allocate */
-	bmp = calloc( 1, sizeof( BMP ) );
+	bmp = (BMP*)calloc( 1, sizeof( BMP ) );
 	if ( bmp == NULL )
 	{
 		BMP_LAST_ERROR_CODE = BMP_OUT_OF_MEMORY;
@@ -794,5 +794,5 @@ int	WriteUSHORT( USHORT x, FILE* f )
 	little[ 0 ] = (UCHAR)( ( x & 0x00ff ) >> 0 );
 
 	return ( f && fwrite( little, 2, 1, f ) == 1 );
-}
+};
 

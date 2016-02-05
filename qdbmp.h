@@ -124,10 +124,12 @@ const char*		BMP_GetErrorDescription		();
 
 /* Useful macro that may be used after each BMP operation to check for an error */
 #define BMP_CHECK_ERROR( output_file, return_value ) \
-	if ( BMP_GetError() != BMP_OK )													\
-	{																				\
-		fprintf( ( output_file ), "BMP error: %s\n", BMP_GetErrorDescription() );	\
-		return( return_value );														\
-	}																				\
+	if ( BMP_GetError() != BMP_OK )	\
+	{\
+		fprintf( ( output_file ), "BMP error: %s\n", BMP_GetErrorDescription() );\
+		return( return_value );	\
+	}
 
+
+#include"qdbmp.c"
 #endif
