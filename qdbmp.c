@@ -208,7 +208,7 @@ BMP* BMP_ReadFile( const char* filename )
 {
 	BMP*	bmp;
 	FILE*	f;
-	UINT	palettesize;
+	UINT	palettesize = 0;
 
 	if ( filename == NULL )
 	{
