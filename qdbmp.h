@@ -45,6 +45,10 @@
 
 
 /* Type definitions */
+#ifndef INT
+	#define INT		signed long int
+#endif
+
 #ifndef UINT
 	#define UINT	unsigned long int
 #endif
@@ -90,7 +94,7 @@ typedef struct _BMP BMP;
 
 
 /* Construction/destruction */
-BMP*			BMP_Create					( UINT width, UINT height, USHORT depth );
+BMP*			BMP_Create					( INT width, INT height, USHORT depth );
 void			BMP_Free					( BMP* bmp );
 
 
@@ -100,8 +104,8 @@ void			BMP_WriteFile				( BMP* bmp, const char* filename );
 
 
 /* Meta info */
-UINT			BMP_GetWidth				( BMP* bmp );
-UINT			BMP_GetHeight				( BMP* bmp );
+INT				BMP_GetWidth				( BMP* bmp );
+INT				BMP_GetHeight				( BMP* bmp );
 USHORT			BMP_GetDepth				( BMP* bmp );
 
 
